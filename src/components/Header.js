@@ -1,13 +1,10 @@
 import React from 'react';
 
-class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Weather Finder</h1>
-      </div>
-    );
-  }
-}
+const Header = props => (
+  <div>
+    <h1>Weather Finder</h1>
+    <p>Finding weather at your your service.</p>
+  </div>
+);
 
 export default Header;

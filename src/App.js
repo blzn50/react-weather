@@ -4,7 +4,7 @@ import Form from './components/Form';
 import Weather from './components/Weather';
 import './App.css';
 
-const API_KEY = 'dd8830a0ce9aa6dd4f943f7df5058631';
+const API_KEY = 'process.env';
 
 class App extends Component {
   state = {
@@ -25,22 +25,33 @@ class App extends Component {
     );
     const data = await api_call.json();
 
-    console.log(data);
-    this.setState({
-      temperature: data.main.temp,
-      city: data.name,
-      country: data.sys.country,
-      humidity: data.main.humidity,
-      description: data.weather[0].description,
-      error: ''
-    });
+    if (city && country) {
+      this.setState({
+        temperature: data.main.temp,
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: ''
+      });
+    } else {
+      this.setState({
+        temperature: '',
+        city: '',
+        country: '',
+        humidity: '',
+        description: '',
+        error: 'Please enter the values'
+      });
+    }
   };
+
   render() {
     return (
       <div>
         <Header />
         <Form getWeather={this.getWeather} />
-        <Weather />
+        <Weather data={this.state} />
       </div>
     );
   }
