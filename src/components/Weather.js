@@ -1,17 +1,17 @@
 import React from 'react';
 
-const Weather = props => (
-  <div>
-    {props.city &&
-      props.country && (
+const Weather = ({ data }) => (
+  <div className="weather_info">
+    {data.city &&
+      data.country && (
         <p>
-          Location: {props.city}, {props.country}
+          Location: {data.city}, {data.country}
         </p>
       )}
-    {props.temperature && <p>Temperature: {props.temperature}</p>}
-    {props.humidity && <p>Humidity: {props.humidity}</p>}
-    {props.description && <p>Condition: {props.description}</p>}
-    {props.error && <p>{props.error}</p>}
+    {data.temperature && <p>Temperature: {data.temperature}</p>}
+    {data.humidity && <p>Humidity: {data.humidity}</p>}
+    {data.description && <p>Condition: {data.description}</p>}
+    {data.error && <p>{data.error}</p>}
   </div>
 );
 

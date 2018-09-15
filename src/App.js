@@ -4,7 +4,7 @@ import Form from './components/Form';
 import Weather from './components/Weather';
 import './App.css';
 
-const API_KEY = 'process.env';
+const API_KEY = 'process.env.api';
 
 class App extends Component {
   state = {
@@ -24,7 +24,7 @@ class App extends Component {
       `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`
     );
     const data = await api_call.json();
-
+    console.log(data);
     if (city && country) {
       this.setState({
         temperature: data.main.temp,
@@ -49,9 +49,21 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Form getWeather={this.getWeather} />
-        <Weather data={this.state} />
+        <div className="wrapper">
+          <div className="main">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-5 title-container">
+                  <Header />
+                </div>
+                <div className="col-7 form-container">
+                  <Form getWeather={this.getWeather} />
+                  <Weather data={this.state} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
