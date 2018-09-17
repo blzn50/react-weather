@@ -4,7 +4,7 @@ import Form from './components/Form';
 import Weather from './components/Weather';
 import './App.css';
 
-const API_KEY = 'process.env.api';
+const API_KEY = process.env.REACT_APP_API_URL;
 
 class App extends Component {
   state = {
@@ -46,6 +46,12 @@ class App extends Component {
     }
   };
 
+  handleKeyPress = e => {
+    if (e.key === 'enter') {
+      this.getWeather();
+    }
+  };
+
   render() {
     return (
       <div>
@@ -57,7 +63,10 @@ class App extends Component {
                   <Header />
                 </div>
                 <div className="col-7 form-container">
-                  <Form getWeather={this.getWeather} />
+                  <Form
+                    handleKeyPress={this.handleKeyPress}
+                    getWeather={this.getWeather}
+                  />
                   <Weather data={this.state} />
                 </div>
               </div>

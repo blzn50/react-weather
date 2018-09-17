@@ -5,7 +5,9 @@
 body {
   font-family: 'Open Sans', serif;
 }
-
+h2 {
+  color: #eee;
+}
 .wrapper {
   background: linear-gradient(to right, #e67e22, #e74c3c);
   height: 100vh;
@@ -53,14 +55,48 @@ body {
 }
 
 .form {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
+
 input[type='text'] {
   margin: 5px;
-  padding: 5px;
-  width: 30%;
+  margin-bottom: 20px;
+  padding-bottom: 2px;
+  width: 35%;
   background: transparent;
-  color: white;
-  border: 0;
+  color: #eee;
+  border: none;
   border-bottom: 1px solid black;
+  letter-spacing: 0.1rem;
+  font-size: 1.3rem;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  background: #eee;
+  color: #333333;
+  border: 1px;
+  border-radius: 3px;
+}
+
+button:hover {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.weather_info {
+  padding: 15px 10px;
+}
+.weather {
+  font-size: 1.2rem;
+  color: #eee;
+}
+
+.weather_error {
+  color: black;
+  font-size: 2rem;
 }
