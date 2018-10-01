@@ -69,6 +69,7 @@ input[type='text'] {
   border-bottom: 1px solid black;
   letter-spacing: 0.1rem;
   font-size: 1.3rem;
+  line-height: 35px;
 }
 
 button {
@@ -89,14 +90,25 @@ button:hover {
 }
 
 .weather_info {
+  margin-top: 2em;
   padding: 15px 10px;
 }
 .weather {
   font-size: 1.2rem;
   color: #eee;
+  border-bottom: 1px solid #ddd;
+}
+.weather_elem {
+  position: relative;
+  float: right;
 }
 
 .weather_error {
-  color: black;
+  background: rgba(107, 106, 106, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 2rem;
+  margin: 0.7em auto;
+  padding: 0.7em 0.3em;
+  border: 1px solid;
+  border-radius: 4px;
 }
